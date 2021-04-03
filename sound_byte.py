@@ -17,11 +17,14 @@ class sound_byte(audio_object):
         super.__init__(file_name, file_type, fr, chnls, sw)
 
     def scale_freq(self, factor):
+        """ Returns a numpy array with the audio sample scaled by factor """
         return zulko.scale_freq(self.get_numpy_samples(), factor)
 
     def sretch(self, f, window_size, h):
+        """ Returns a numpy array with the audio sample stretched by some factor f """
         return zulko.stretch(self.get_numpy_samples(), f, window_size, h)
 
     def pitch_shift(self, n, window_size=2**13, h=2**11):
+        """ Returns a numpy array with the audio sample pitch shifted by n semitones """
         return zulko.pitch_shift(self.get_numpy_samples(), n, window_size, h)
     
